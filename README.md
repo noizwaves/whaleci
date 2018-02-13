@@ -5,7 +5,7 @@ Local ConcourseCI instance running on Docker
 ## Why?
 
 Because running ConcourseCI locally was harder than it should have been!
-The instructions are adapted from the (official Concourse/Docker)[http://concourse.ci/docker-repository.html] instructions.
+The instructions are adapted from the [official Concourse/Docker](http://concourse.ci/docker-repository.html) instructions.
 
 ## Requirements
 
