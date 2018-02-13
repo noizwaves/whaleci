@@ -2,16 +2,19 @@
 
 Local ConcourseCI instance running on Docker
 
+
 ## Why?
 
 Because running ConcourseCI locally was harder than it should have been!
 The instructions are adapted from the [official Concourse/Docker](http://concourse.ci/docker-repository.html) instructions.
+
 
 ## Requirements
 
 - macOS 13.13.3
 - homebrew
 - docker-toolbox 18.01.0-ce
+
 
 ## Installation
 
@@ -23,6 +26,7 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 1. Set Concourse URL via `export CONCOURSE_EXTERNAL_URL=http://192.168.99.100:8080`
 1. Launch ConcourseCI via `docker-compose up`
 1. Navigate to [ConcourseCI](http://192.168.99.100:8080)
+
 
 ## Usage
 
@@ -37,3 +41,18 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 
 1. CTRL+C from the `docker-compose` terminal tab
 1. Stop the VM via `docker-machine stop default`
+
+
+## Known issues
+
+### ~ 'Base resource not found'
+
+You are using Docker for Mac, not "Docker Toolbox".
+
+### ~ 'unknown handle: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
+
+Concourse containers inside Docker are stale, recreate the cluster them via
+
+1. Stop docker-compose via CTRL+C
+1. `docker-compose rm --force`
+1. `docker-compose up`
