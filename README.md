@@ -21,10 +21,9 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 1. Ensure Homebrew is installed
 1. Install Docker via `brew cask install docker`
 1. Create keys via `./generate-keys.sh`
-1. Configure Docker CLI via `eval $(docker-machine env default)`
-1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:8080``
+1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:9090``
 1. Launch ConcourseCI via `docker-compose up`
-1. Navigate to [ConcourseCI](http://localhost:8080)
+1. Navigate to [ConcourseCI](http://localhost:9090)
 
 
 ## Usage
@@ -32,7 +31,7 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 ### Starting
 
 1. Set Docker CLI envs (once per terminal tab) via `eval $(docker-machine env default)`
-1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:8080``
+1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:9090``
 1. Start ConcourseCI (once) via `docker-compose up`
 
 ## Using
