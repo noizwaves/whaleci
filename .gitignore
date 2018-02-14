@@ -1,3 +1,6 @@
 keys/
 .idea/
 whaleci.sln
+.DS_Store
+keys/
+minio-data/

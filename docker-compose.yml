@@ -29,10 +29,18 @@ services:
   concourse-worker:
     image: concourse/concourse
     privileged: true
-    links: [concourse-web]
-    depends_on: [concourse-web]
+    links: [concourse-web, concourse-storage]
+    depends_on: [concourse-web, concourse-storage]
     command: worker
     volumes: ["./keys/worker:/concourse-keys"]
     environment:
       CONCOURSE_TSA_HOST: concourse-web
       CONCOURSE_BAGGAGECLAIM_DRIVER: naive
+
+  concourse-storage:
+    image: minio/minio
+    command: "server /data"
+    ports: ["9000:9000"]
+    volumes: ["./minio-data:/data"]
+    env_file:
+    - ./keys/storage/storage.env
