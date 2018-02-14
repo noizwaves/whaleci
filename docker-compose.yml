@@ -3,11 +3,12 @@ version: '3'
 services:
   concourse-db:
     image: postgres:9.6
+    volumes: ["./postgres-data:/database"]
     environment:
       POSTGRES_DB: concourse
       POSTGRES_USER: concourse
       POSTGRES_PASSWORD: changeme
-      PGDATA: /database
+      PGDATA: /database/data
 
   concourse-web:
     image: concourse/concourse

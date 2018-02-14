@@ -4,3 +4,4 @@ whaleci.sln
 .DS_Store
 keys/
 minio-data/
+postgres-data/
