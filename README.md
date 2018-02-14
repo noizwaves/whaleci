@@ -40,6 +40,8 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 ### Stopping
 
 1. CTRL+C from the `docker-compose` terminal tab
+1. Delete the worker container via `docker rm whaleci_concourse-worker_1`
+1. Prune deleted worker by running `fly -t whaleci workers` and `fly -t whaleci prune-worker -w <name>`
 1. Stop the VM via `docker-machine stop default`
 
 
