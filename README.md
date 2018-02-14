@@ -11,19 +11,18 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 
 ## Requirements
 
-- macOS 13.13.3
+- macOS 10.13.3 / 10.12.x 
 - homebrew
-- docker-toolbox 18.01.0-ce
+- Docker for Mac (17.12.0-ce-mac49)
 
 
 ## Installation
 
 1. Ensure Homebrew is installed
-1. Install Docker via `brew cask install docker-toolbox`
-1. Create a VM for Docker via `docker-machine create --driver virtualbox default`
+1. Install Docker via `brew cask install docker`
 1. Create keys via `./generate-keys.sh`
 1. Configure Docker CLI via `eval $(docker-machine env default)`
-1. Set Concourse URL via `export CONCOURSE_EXTERNAL_URL=http://192.168.99.100:8080`
+1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:8080``
 1. Launch ConcourseCI via `docker-compose up`
 1. Navigate to [ConcourseCI](http://192.168.99.100:8080)
 
@@ -32,17 +31,14 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 
 ### Starting
 
-1. Start VM (once per session) via `docker-machine start default`
 1. Set Docker CLI envs (once per terminal tab) via `eval $(docker-machine env default)`
-1. Set Concourse URL via `export CONCOURSE_EXTERNAL_URL=http://192.168.99.100:8080`
+1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:8080``
 1. Start ConcourseCI (once) via `docker-compose up`
 
 ### Stopping
 
 1. CTRL+C from the `docker-compose` terminal tab
 1. Delete the worker container via `docker rm whaleci_concourse-worker_1`
-1. Prune deleted worker by running `fly -t whaleci workers` and `fly -t whaleci prune-worker -w <name>`
-1. Stop the VM via `docker-machine stop default`
 
 
 ## Known issues
@@ -58,3 +54,7 @@ Concourse containers inside Docker are stale, recreate the cluster them via
 1. Stop docker-compose via CTRL+C
 1. `docker-compose rm --force`
 1. `docker-compose up`
+
+### Stale workers
+
+Prune deleted worker by running `fly -t whaleci workers` and `fly -t whaleci prune-worker -w <name>`
