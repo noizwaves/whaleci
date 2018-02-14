@@ -24,7 +24,7 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 1. Configure Docker CLI via `eval $(docker-machine env default)`
 1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:8080``
 1. Launch ConcourseCI via `docker-compose up`
-1. Navigate to [ConcourseCI](http://192.168.99.100:8080)
+1. Navigate to [ConcourseCI](http://localhost:8080)
 
 
 ## Usage
@@ -35,17 +35,19 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:8080``
 1. Start ConcourseCI (once) via `docker-compose up`
 
+## Using
+
+Update your project's `pipeline.yml` and `variables.yml` to work with WhaleCI
+
+1. `cat ./keys/storage/storage.env` and update your `access_key_id` and `secret_access_key`
+1. Change S3 resources to use endpoint of `http://concourse-storage:9000`
+
 ### Stopping
 
 1. CTRL+C from the `docker-compose` terminal tab
-1. Delete the worker container via `docker rm whaleci_concourse-worker_1`
 
 
 ## Known issues
-
-### ~ 'Base resource not found'
-
-You are using Docker for Mac, not "Docker Toolbox".
 
 ### ~ 'unknown handle: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
 
@@ -58,3 +60,7 @@ Concourse containers inside Docker are stale, recreate the cluster them via
 ### Stale workers
 
 Prune deleted worker by running `fly -t whaleci workers` and `fly -t whaleci prune-worker -w <name>`
+
+### Missing volumes
+
+1. Delete the containers via `docker-compose rm --force`
