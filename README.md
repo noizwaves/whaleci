@@ -20,6 +20,7 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 
 1. Ensure Homebrew is installed
 1. Install Docker via `brew cask install docker`
+1. Increase Docker's CPU and memory usage as high as you can manage (2 CPUs and 6GB recommended).
 1. Create keys via `./generate-keys.sh`
 1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:9090``
 1. Launch ConcourseCI via `docker-compose up`
