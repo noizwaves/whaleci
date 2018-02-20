@@ -63,3 +63,11 @@ Prune deleted worker by running `fly -t whaleci workers` and `fly -t whaleci pru
 ### Missing volumes
 
 1. Delete the containers via `docker-compose rm --force`
+
+### ~ "fatal error: out of memory"
+
+1. Increase memory for Docker's VM in `Docker > Preferences > Advanced > Memory`
+
+### Misc errors
+
+Increase memory some more as above
