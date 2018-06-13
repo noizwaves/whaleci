@@ -19,8 +19,8 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 ## Installation
 
 1. Ensure Homebrew is installed
-1. Install Docker via `brew cask install docker`
-1. Increase Docker's CPU and memory usage as high as you can manage (2 CPUs and 6GB recommended).
+1. Install [Docker for Mac](https://www.docker.com/docker-mac)
+1. Increase Docker's CPU and memory usage as high as you can manage (2 CPUs and 6GB recommended) via Preferences > Advanced.
 1. Create keys via `./generate-keys.sh`
 1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:9090``
 1. Launch ConcourseCI via `docker-compose up`
@@ -31,7 +31,6 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 
 ### Starting
 
-1. Set Docker CLI envs (once per terminal tab) via `eval $(docker-machine env default)`
 1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:9090``
 1. Start ConcourseCI (once) via `docker-compose up`
 
@@ -40,7 +39,7 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 Update your project's `pipeline.yml` and `variables.yml` to work with WhaleCI
 
 1. `cat ./keys/storage/storage.env` and update your `access_key_id` and `secret_access_key`
-1. Change S3 resources to use endpoint of `http://concourse-storage:9000`
+1. Change S3 resources to use an `endpoint` of `http://concourse-storage:9000`
 
 ### Stopping
 
