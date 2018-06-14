@@ -34,12 +34,20 @@ The instructions are adapted from the [official Concourse/Docker](http://concour
 1. Set Concourse URL via ``export CONCOURSE_EXTERNAL_URL=http://`ipconfig getifaddr en0`:9090``
 1. Start ConcourseCI (once) via `docker-compose up`
 
-## Using
+### Using
 
 Update your project's `pipeline.yml` and `variables.yml` to work with WhaleCI
 
-1. `cat ./keys/storage/storage.env` and update your `access_key_id` and `secret_access_key`
-1. Change S3 resources to use an `endpoint` of `http://concourse-storage:9000`
+1. `cat ./keys/storage/storage.env` and update your `access_key_id` and `secret_access_key` variable values
+1. Change `s3` and `semver` resources to use an `endpoint` of `http://concourse-storage:9000` (either directly or by adding a new variable). For example:
+
+```yaml
+- name: version
+  type: semver
+  source:
+    endpoint: http://concourse-storage:9000
+```
+
 
 ### Stopping
 
